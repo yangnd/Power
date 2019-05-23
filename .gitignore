@@ -1,6 +1,8 @@
-*/Listings/
-*/Objects/
-*/DebugConfig/
+Listings/
+Objects/
+DebugConfig/
+.vscode/
+/
 
 # Prerequisites
 *.d
@@ -54,4 +56,4 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-.vscode/
+
