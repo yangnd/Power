@@ -2,7 +2,6 @@ Listings/
 Objects/
 DebugConfig/
 .vscode/
-/
 
 # Prerequisites
 *.d
@@ -57,3 +56,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+*.user
+*.uvoptx
+*.uvprojx
