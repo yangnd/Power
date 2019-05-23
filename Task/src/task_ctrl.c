@@ -98,7 +98,8 @@ void vIGBTCtrlTask(void *param)
 				capCurrH=(uSensorState&0x08)>>3;
 				mpIGBTErr=(uSensorState&0x10)>>4;
 				capIGBTErr=(uSensorState&0x20)>>5;
-				batIGBTErr=(uSensorState&0x40)>>6;
+				batIGBTErr=(uSensorState&0x40)>>6;	
+				batIGBTErr=0;	//调试用，强制
 				//IGBT
 				if(mpIGBTErr||capIGBTErr||batIGBTErr) 
 				{

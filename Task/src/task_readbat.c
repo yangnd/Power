@@ -77,14 +77,14 @@ void vReadBatTask(void *param)
 	while(1)
 	{
 		vTaskDelay(200);
-		ackStatus=ModbusReadSReg(0x01,0x03,&batPercent);
+		ackStatus=ModbusReadSReg(0x03,0x03,&batPercent);	//id:03 address:03
 		if(ackStatus==MODBUS_ACK_OK)
 		{
 			if(batPercent>95)
 			{
 				batStatus=BAT_CHG_COMPTETE;
 			}
-			else if(batPercent<20)
+			else if(batPercent<50)
 			{
 				batStatus=BAT_CHG_START;
 			}

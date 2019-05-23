@@ -44,14 +44,14 @@ void vSensorTask(void *param)
 		if(uCapCurr>7) uSensorState=uSensorState|0x08;
 		else if(uCapCurr<3) uSensorState=uSensorState&0xF7;
 		//BIT4
-		if(uMpIGBTErr>7) uSensorState=uSensorState|0x10;
-		else if(uMpIGBTErr<3) uSensorState=uSensorState&0xEF;
+		if(uMpIGBTErr<3) uSensorState=uSensorState|0x10;		//低为Err
+		else if(uMpIGBTErr>7) uSensorState=uSensorState&0xEF;
 		//BIT5
-		if(uCapIGBTErr>7) uSensorState=uSensorState|0x20;
-		else if(uCapIGBTErr<3) uSensorState=uSensorState&0xDF;
-		//BIT7
-		if(uBatIGBTErr>7) uSensorState=uSensorState|0x40;
-		else if(uBatIGBTErr<3) uSensorState=uSensorState&0xBF;
+		if(uCapIGBTErr<3) uSensorState=uSensorState|0x20;		//低为Err
+		else if(uCapIGBTErr>7) uSensorState=uSensorState&0xDF;
+		//BIT6
+		if(uBatIGBTErr<3) uSensorState=uSensorState|0x40;		//低为Err
+		else if(uBatIGBTErr>7) uSensorState=uSensorState&0xBF;
 	}
 }
 u8 getSensorState(void)

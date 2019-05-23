@@ -42,14 +42,14 @@ I (.\FreeRTOS\include\list.h)(0x5B7DF2AB)
 I (App\stm32f10x_it.h)(0x58059E69)
 I (.\Task\inc\task_beep.h)(0x5CE4FDA9)
 I (.\Task\inc\task_key.h)(0x5CDA08F1)
-I (.\Task\inc\task_can.h)(0x5CE2C76E)
+I (.\Task\inc\task_can.h)(0x5CE54F37)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (.\Task\inc\task_sensor.h)(0x5CE4E39A)
 I (.\Task\inc\task_readbat.h)(0x5CE4A195)
 I (.\Task\inc\task_ctrl.h)(0x5CE500DE)
 I (.\HARDWARE\inc\key.h)(0x5CDA0893)
 I (.\HARDWARE\inc\led.h)(0x5CDA0894)
-I (.\HARDWARE\inc\beep.h)(0x5CE500FF)
+I (.\HARDWARE\inc\beep.h)(0x5CE5E682)
 I (.\HARDWARE\inc\can.h)(0x5CDE4310)
 I (.\HARDWARE\inc\sensor.h)(0x5CDA0894)
 I (.\SYSTEM\inc\delay.h)(0x5CDA093B)
@@ -239,8 +239,8 @@ I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D783BB4)
 I (.\SYSTEM\inc\delay.h)(0x5CDA093B)
-F (.\HARDWARE\src\beep.c)(0x5CE4FC9D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\beep.o --omf_browse .\objects\beep.crf --depend .\objects\beep.d)
-I (.\HARDWARE\inc\beep.h)(0x5CE500FF)
+F (.\HARDWARE\src\beep.c)(0x5CE5E6A8)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\beep.o --omf_browse .\objects\beep.crf --depend .\objects\beep.d)
+I (.\HARDWARE\inc\beep.h)(0x5CE5E682)
 I (.\SYSTEM\inc\sys.h)(0x5CDA093B)
 I (.\Libraries\CMSIS\DeviceSupport\stm32f10x.h)(0x5C918B4E)
 I (.\Libraries\CMSIS\CoreSupport\core_cm3.h)(0x4D523B58)
@@ -270,7 +270,6 @@ I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x4D783BB4)
 I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D783BB4)
-F (.\HARDWARE\inc\beep.h)(0x5CE500FF)()
 F (.\FreeRTOS\list.c)(0x5B7DF2AA)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\list.o --omf_browse .\objects\list.crf --depend .\objects\list.d)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
 I (.\FreeRTOS\include\FreeRTOS.h)(0x5B7DF2AC)
@@ -743,7 +742,7 @@ I (.\FreeRTOS\portable\RVDS\ARM_CM3\portmacro.h)(0x5B936984)
 I (.\FreeRTOS\include\mpu_wrappers.h)(0x5B7DF2AC)
 I (.\FreeRTOS\include\task.h)(0x5B7DF2AB)
 I (.\FreeRTOS\include\list.h)(0x5B7DF2AB)
-F (.\Task\src\task_sensor.c)(0x5CE50397)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\task_sensor.o --omf_browse .\objects\task_sensor.crf --depend .\objects\task_sensor.d)
+F (.\Task\src\task_sensor.c)(0x5CE5F099)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\task_sensor.o --omf_browse .\objects\task_sensor.crf --depend .\objects\task_sensor.d)
 I (.\Task\inc\task_sensor.h)(0x5CE4E39A)
 I (.\SYSTEM\inc\sys.h)(0x5CDA093B)
 I (.\Libraries\CMSIS\DeviceSupport\stm32f10x.h)(0x5C918B4E)
@@ -786,7 +785,7 @@ I (.\FreeRTOS\include\mpu_wrappers.h)(0x5B7DF2AC)
 I (.\FreeRTOS\include\task.h)(0x5B7DF2AB)
 I (.\FreeRTOS\include\list.h)(0x5B7DF2AB)
 F (.\Task\src\task_can.c)(0x5CE2C7E3)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\task_can.o --omf_browse .\objects\task_can.crf --depend .\objects\task_can.d)
-I (.\Task\inc\task_can.h)(0x5CE2C76E)
+I (.\Task\inc\task_can.h)(0x5CE54F37)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (.\SYSTEM\inc\sys.h)(0x5CDA093B)
 I (.\Libraries\CMSIS\DeviceSupport\stm32f10x.h)(0x5C918B4E)
@@ -828,7 +827,7 @@ I (.\FreeRTOS\portable\RVDS\ARM_CM3\portmacro.h)(0x5B936984)
 I (.\FreeRTOS\include\mpu_wrappers.h)(0x5B7DF2AC)
 I (.\FreeRTOS\include\task.h)(0x5B7DF2AB)
 I (.\FreeRTOS\include\list.h)(0x5B7DF2AB)
-F (.\Task\src\task_readbat.c)(0x5CE4A1A8)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\task_readbat.o --omf_browse .\objects\task_readbat.crf --depend .\objects\task_readbat.d)
+F (.\Task\src\task_readbat.c)(0x5CE60F94)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\task_readbat.o --omf_browse .\objects\task_readbat.crf --depend .\objects\task_readbat.d)
 I (.\Task\inc\task_readbat.h)(0x5CE4A195)
 I (.\SYSTEM\inc\sys.h)(0x5CDA093B)
 I (.\Libraries\CMSIS\DeviceSupport\stm32f10x.h)(0x5C918B4E)
@@ -872,7 +871,7 @@ I (.\FreeRTOS\include\task.h)(0x5B7DF2AB)
 I (.\FreeRTOS\include\list.h)(0x5B7DF2AB)
 I (.\FreeRTOS\include\semphr.h)(0x5B7DF2AC)
 I (.\FreeRTOS\include\queue.h)(0x5B7DF2AB)
-F (.\Task\src\task_ctrl.c)(0x5CE501D9)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\task_ctrl.o --omf_browse .\objects\task_ctrl.crf --depend .\objects\task_ctrl.d)
+F (.\Task\src\task_ctrl.c)(0x5CE5F0F4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\task_ctrl.o --omf_browse .\objects\task_ctrl.crf --depend .\objects\task_ctrl.d)
 I (.\Task\inc\task_ctrl.h)(0x5CE500DE)
 I (.\SYSTEM\inc\sys.h)(0x5CDA093B)
 I (.\Libraries\CMSIS\DeviceSupport\stm32f10x.h)(0x5C918B4E)
@@ -906,7 +905,7 @@ I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D783BB4)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
 I (.\Task\inc\task_key.h)(0x5CDA08F1)
 I (.\Task\inc\task_sensor.h)(0x5CE4E39A)
-I (.\Task\inc\task_can.h)(0x5CE2C76E)
+I (.\Task\inc\task_can.h)(0x5CE54F37)
 I (.\Task\inc\task_readbat.h)(0x5CE4A195)
 I (.\HARDWARE\inc\led.h)(0x5CDA0894)
 I (.\FreeRTOS\include\FreeRTOS.h)(0x5B7DF2AC)
@@ -919,7 +918,7 @@ I (.\FreeRTOS\portable\RVDS\ARM_CM3\portmacro.h)(0x5B936984)
 I (.\FreeRTOS\include\mpu_wrappers.h)(0x5B7DF2AC)
 I (.\FreeRTOS\include\task.h)(0x5B7DF2AB)
 I (.\FreeRTOS\include\list.h)(0x5B7DF2AB)
-F (.\Task\src\task_beep.c)(0x5CE50130)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\task_beep.o --omf_browse .\objects\task_beep.crf --depend .\objects\task_beep.d)
+F (.\Task\src\task_beep.c)(0x5CE5E6C0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\task_beep.o --omf_browse .\objects\task_beep.crf --depend .\objects\task_beep.d)
 I (.\Task\inc\task_beep.h)(0x5CE4FDA9)
 I (.\SYSTEM\inc\sys.h)(0x5CDA093B)
 I (.\Libraries\CMSIS\DeviceSupport\stm32f10x.h)(0x5C918B4E)
@@ -952,7 +951,7 @@ I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x4D783BB4)
 I (.\Task\inc\task_ctrl.h)(0x5CE500DE)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F606B8)
-I (.\HARDWARE\inc\beep.h)(0x5CE500FF)
+I (.\HARDWARE\inc\beep.h)(0x5CE5E682)
 I (.\FreeRTOS\include\FreeRTOS.h)(0x5B7DF2AC)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
 I (.\App\FreeRTOSConfig.h)(0x5CDA0869)
@@ -963,7 +962,6 @@ I (.\FreeRTOS\portable\RVDS\ARM_CM3\portmacro.h)(0x5B936984)
 I (.\FreeRTOS\include\mpu_wrappers.h)(0x5B7DF2AC)
 I (.\FreeRTOS\include\task.h)(0x5B7DF2AB)
 I (.\FreeRTOS\include\list.h)(0x5B7DF2AB)
-F (.\Task\inc\task_beep.h)(0x5CE4FDA9)()
 F (.\SYSTEM\src\delay.c)(0x5CDA0951)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CoreSupport -I .\Libraries\CMSIS\DeviceSupport -I .\Libraries\CMSIS\DeviceSupport\startup -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\FreeRTOS -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\HARDWARE -I .\App -I .\Task -I .\HARDWARE\inc -I .\Task\inc -I .\SYSTEM\inc-I.\RTE\_Power-ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
 I (.\SYSTEM\inc\delay.h)(0x5CDA093B)
 I (.\SYSTEM\inc\sys.h)(0x5CDA093B)
