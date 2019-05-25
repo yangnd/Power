@@ -1,20 +1,21 @@
 #include "task_beep.h"
-#include "task_ctrl.h"
+#include "task_sensor.h"
 #include "beep.h"
-#include <stdbool.h>
+
 /*FreeRtos includes*/
 #include "FreeRTOS.h"
 #include "task.h"
-static bool igbtErr;
 void vBeepTask(void *param)
 {
+	u8 uSensorState;
 	while (1)
 	{
 		vTaskDelay(300);
 		BEEP = 0;
 		vTaskDelay(300);
-		igbtErr = getIGBTErr();
-		if (igbtErr)
+		uSensorState=getSensorState();
+		uSensorState=uSensorState&0x3F;	//强制bit6：0
+		if (uSensorState>>4)
 			BEEP = 1;
 	}
 }

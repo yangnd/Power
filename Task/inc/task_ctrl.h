@@ -1,7 +1,6 @@
 #ifndef __TASK_CTRL_H
 #define __TASK_CTRL_H
 #include "sys.h"
-#include <stdbool.h>
 
 //#define THD_ON GPIO_SetBits(GPIOF,GPIO_Pin_6)
 //#define CAP_ON GPIO_SetBits(GPIOF,GPIO_Pin_8)
@@ -12,7 +11,6 @@
 #define CHARGE_BAT PFout(3)
 #define BAT_TO_CAP PFout(5)
 
-bool getIGBTErr(void);
 void vChargeCtrlTask(void *param);
 void vIGBTCtrlTask(void *param);
 

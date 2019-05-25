@@ -9,6 +9,7 @@ static bool key1_pressed;
 static bool WK_UP_pressed;
 static u8 uKeyState;
 static u32 uPressedTime;
+static u32 uReleasedTime;
 
 void vKeyTask(void *param)
 {
@@ -36,10 +37,13 @@ void vKeyTask(void *param)
 			if (KEY0 == 1)//按键松开后刷新状态
 			{
 				key0_pressed = false;
-				if ((xTaskGetTickCount() - uPressedTime) > LONG_PRESS_COUNT)
+				uReleasedTime=xTaskGetTickCount();
+				if (( uReleasedTime- uPressedTime) > LONG_PRESS_COUNT)
 					uKeyState = KEY0_LONG_PRESS;
-				else if (KEY0 == 1)
+				else if(( uReleasedTime- uPressedTime) < MID_PRESS_COUNT)
 					uKeyState = KEY0_SHORT_PRESS;
+				else
+					uKeyState = KEY0_MID_PRESS;
 			}	
 		}
 		if (key1_pressed == true)
@@ -47,10 +51,13 @@ void vKeyTask(void *param)
 			if (KEY1 == 1)
 			{
 				key1_pressed = false;
-				if ((xTaskGetTickCount() - uPressedTime) > LONG_PRESS_COUNT)
+				uReleasedTime=xTaskGetTickCount();
+				if (( uReleasedTime- uPressedTime) > LONG_PRESS_COUNT)
 					uKeyState = KEY1_LONG_PRESS;
-				else if (KEY1 == 1)
+				else if(( uReleasedTime- uPressedTime) < MID_PRESS_COUNT)
 					uKeyState = KEY1_SHORT_PRESS;
+				else
+					uKeyState = KEY1_MID_PRESS;
 			}
 		}
 		if (WK_UP_pressed == true)
@@ -58,10 +65,13 @@ void vKeyTask(void *param)
 			if (WK_UP == 0)
 			{
 				WK_UP_pressed = false;
-				if ((xTaskGetTickCount() - uPressedTime) > LONG_PRESS_COUNT)
+				uReleasedTime=xTaskGetTickCount();
+				if (( uReleasedTime- uPressedTime) > LONG_PRESS_COUNT)
 					uKeyState = WKUP_LONG_PRESS;
-				else if (WK_UP == 0)
+				else if(( uReleasedTime- uPressedTime) < MID_PRESS_COUNT)
 					uKeyState = WKUP_SHORT_PRESS;
+				else
+					uKeyState = WKUP_MID_PRESS;
 			}
 		}
 	}

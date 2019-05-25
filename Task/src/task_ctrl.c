@@ -12,14 +12,10 @@ static u8 uKeyState;
 bool mp_manual=0,mp_auto=0,cap_manual=0,cap_auto=0,bat_manual=0,bat_auto=0,
 	charge_cap=0,charge_bat=0,bat_to_cap=0,ctrl_mode=0;		//mode:0 manual,1 auto
 bool mpVoltN,capVoltN,mpCurrH,capCurrH,mpIGBTErr,capIGBTErr,batIGBTErr;
-static bool igbtErr=0;
 static u8 batStatus;
 static u8 uSensorState=0;
 static bool igbt_en=0;
-bool getIGBTErr(void)
-{
-	return igbtErr;
-}
+
 void vIGBTCtrlTask(void *param)
 {
 	static bool mode_flag=0;
@@ -28,25 +24,34 @@ void vIGBTCtrlTask(void *param)
 	{
 		vTaskDelay(20);
 		igbt_en=getIGBTEn();
-		igbt_en=1;	//调试用
+		igbt_en=1;	//调试强制
 		if(igbt_en)	LED1=0;
 		else LED1=1;
 		uKeyState=getKeyState();
 		switch(uKeyState)
 		{
 			case KEY0_SHORT_PRESS:				
+				//RESV
+				break;
+			case KEY0_MID_PRESS:				
 				charge_cap=!charge_cap;
 				break;
 			case KEY0_LONG_PRESS:
 				mp_manual=!mp_manual;
 				break;
 			case KEY1_SHORT_PRESS:
+				//RESV
+				break;
+			case KEY1_MID_PRESS:
 				charge_bat=!charge_bat;
 				break;
 			case KEY1_LONG_PRESS:				
 				cap_manual=!cap_manual;
 				break;
 			case WKUP_SHORT_PRESS:
+				//RESV
+				break;
+			case WKUP_MID_PRESS:
 				ctrl_mode=!ctrl_mode;
 				break;
 			case WKUP_LONG_PRESS:
@@ -92,6 +97,7 @@ void vIGBTCtrlTask(void *param)
 			if(igbt_en)
 			{
 				uSensorState=getSensorState();
+				uSensorState=uSensorState&0x3F;	//强制bit6：0
 				mpVoltN=uSensorState&0x01;
 				capVoltN=(uSensorState&0x02)>>1;
 				mpCurrH=(uSensorState&0x04)>>2;
@@ -99,18 +105,15 @@ void vIGBTCtrlTask(void *param)
 				mpIGBTErr=(uSensorState&0x10)>>4;
 				capIGBTErr=(uSensorState&0x20)>>5;
 				batIGBTErr=(uSensorState&0x40)>>6;	
-				batIGBTErr=0;	//调试用，强制
 				//IGBT
 				if(mpIGBTErr||capIGBTErr||batIGBTErr) 
 				{
-					igbtErr=1;
 					if(mpIGBTErr)	MP_IGBT=0;
 					if(capIGBTErr)	CAP_IGBT=0;
 					if(batIGBTErr)	BAT_IGBT=0;
 				}
 				else
 				{
-					igbtErr=0;
 					if(mpVoltN)
 					{
 						if(BAT_IGBT)
