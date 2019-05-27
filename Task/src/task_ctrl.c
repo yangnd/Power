@@ -24,7 +24,7 @@ void vIGBTCtrlTask(void *param)
 	{
 		vTaskDelay(20);
 		igbt_en=getIGBTEn();
-		igbt_en=1;	//调试强制
+//		igbt_en=1;	//调试强制
 		if(igbt_en)	LED1=0;
 		else LED1=1;
 		uKeyState=getKeyState();
@@ -73,18 +73,15 @@ void vIGBTCtrlTask(void *param)
 				bat_manual=BAT_IGBT;
 			}
 			//IGBT控制
-			if(igbt_en)
-			{
-				MP_IGBT=mp_manual;
-				CAP_IGBT=cap_manual;
-				BAT_IGBT=bat_manual;
+			
+			if(!igbt_en)
+			{			
+				bat_manual=0;
 			}
-			else
-			{
-				MP_IGBT=0;
-				CAP_IGBT=0;
-				BAT_IGBT=0;
-			}		
+			MP_IGBT=mp_manual;
+			CAP_IGBT=cap_manual;
+			BAT_IGBT=bat_manual;
+					
 		}	
 		/*自动模式*/
 		else
@@ -94,17 +91,18 @@ void vIGBTCtrlTask(void *param)
 			{
 				mode_flag=1;
 			}
+			//SensorState
+			uSensorState=getSensorState();
+//			uSensorState=uSensorState&0x3F;	//强制bit6：0
+			mpVoltN=uSensorState&0x01;
+			capVoltN=(uSensorState&0x02)>>1;
+			mpCurrH=(uSensorState&0x04)>>2;
+			capCurrH=(uSensorState&0x08)>>3;
+			mpIGBTErr=(uSensorState&0x10)>>4;
+			capIGBTErr=(uSensorState&0x20)>>5;
+			batIGBTErr=(uSensorState&0x40)>>6;
 			if(igbt_en)
-			{
-				uSensorState=getSensorState();
-				uSensorState=uSensorState&0x3F;	//强制bit6：0
-				mpVoltN=uSensorState&0x01;
-				capVoltN=(uSensorState&0x02)>>1;
-				mpCurrH=(uSensorState&0x04)>>2;
-				capCurrH=(uSensorState&0x08)>>3;
-				mpIGBTErr=(uSensorState&0x10)>>4;
-				capIGBTErr=(uSensorState&0x20)>>5;
-				batIGBTErr=(uSensorState&0x40)>>6;	
+			{		
 				//IGBT
 				if(mpIGBTErr||capIGBTErr||batIGBTErr) 
 				{

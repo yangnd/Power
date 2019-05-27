@@ -14,7 +14,7 @@ void vBeepTask(void *param)
 		BEEP = 0;
 		vTaskDelay(300);
 		uSensorState=getSensorState();
-		uSensorState=uSensorState&0x3F;	//强制bit6：0
+//		uSensorState=uSensorState&0x3F;	//强制bit6：0
 		if (uSensorState>>4)
 			BEEP = 1;
 	}

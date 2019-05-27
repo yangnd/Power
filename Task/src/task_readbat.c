@@ -18,7 +18,7 @@ static void rs485_interruptCallback(void)
 }
 void Modbus_Init(void)
 {
-	RS485_Init(115200);
+	RS485_Init(9600);
 	rs485rxIT = xSemaphoreCreateBinary();
 	rs485_setIterruptCallback(rs485_interruptCallback);
 }

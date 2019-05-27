@@ -73,9 +73,9 @@ void RS485_Init(u32 bound)
 
 #ifdef EN_USART2_RX																	//如果使能了接收
 	USART_InitStructure.USART_BaudRate = bound;										//波特率设置
-	USART_InitStructure.USART_WordLength = USART_WordLength_9b;						//9位数据长度(注意：：：：STM32数据长度是包含奇偶校验位之后的长度)
+	USART_InitStructure.USART_WordLength = USART_WordLength_8b;						//8位数据长度(注意：：：：STM32数据长度是包含奇偶校验位之后的长度)
 	USART_InitStructure.USART_StopBits = USART_StopBits_1;							//一个停止位
-	USART_InitStructure.USART_Parity = USART_Parity_Odd;							///奇偶校验位
+	USART_InitStructure.USART_Parity = USART_Parity_No;							///奇偶校验位
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None; //无硬件数据流控制
 	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;					//收发模式
 
@@ -107,13 +107,11 @@ void RS485_Send_Data(u8 *buf, u8 len)
 	RS485_TX_EN = 1;		  //设置为发送模式
 	for (t = 0; t < len; t++) //循环发送数据
 	{
-		while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET)
-			;
+		while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET);
 		USART_SendData(USART2, buf[t]);
 	}
 
-	while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET)
-		;
+	while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET);
 	RS485_RX_CNT = 0;
 	RS485_TX_EN = 0; //设置为接收模式
 }
