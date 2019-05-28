@@ -32,17 +32,17 @@ void vSensorTask(void *param)
 			uBatIGBTErr=uBatIGBTErr+BAT_IGBT_ERR;
 		}
 		//BIT0
-		if(uMpVolt>7) uSensorState=uSensorState|0x01;
-		else if(uMpVolt<3) uSensorState=uSensorState&0xFE;
+		if(uMpVolt<3) uSensorState=uSensorState|0x01;
+		else if(uMpVolt>7) uSensorState=uSensorState&0xFE;
 		//BIT1
-		if(uCapVolt>7) uSensorState=uSensorState|0x02;
-		else if(uCapVolt<3) uSensorState=uSensorState&0xFD;
+		if(uCapVolt<3) uSensorState=uSensorState|0x02;
+		else if(uCapVolt>7) uSensorState=uSensorState&0xFD;
 		//BIT2
-		if(uMainCurr>7) uSensorState=uSensorState|0x04;
-		else if(uMainCurr<3) uSensorState=uSensorState&0xFB;
+		if(uMainCurr<3) uSensorState=uSensorState|0x04;
+		else if(uMainCurr>7) uSensorState=uSensorState&0xFB;
 		//BIT3
-		if(uCapCurr>7) uSensorState=uSensorState|0x08;
-		else if(uCapCurr<3) uSensorState=uSensorState&0xF7;
+		if(uCapCurr<3) uSensorState=uSensorState|0x08;
+		else if(uCapCurr>7) uSensorState=uSensorState&0xF7;
 		//BIT4
 		if(uMpIGBTErr<3) uSensorState=uSensorState|0x10;		//低电平为Err
 		else if(uMpIGBTErr>7) uSensorState=uSensorState&0xEF;
