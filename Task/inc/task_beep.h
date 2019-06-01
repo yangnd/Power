@@ -2,6 +2,6 @@
 #define __TASK_BEEP_H
 #include "sys.h"
 
-void vBeepTask(void *param);
+void vBeepTask( void* param );
 
 #endif
