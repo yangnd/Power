@@ -11,6 +11,7 @@
 static u8   uKeyState;
 bool        mp_manual = 0, mp_auto = 0, cap_manual = 0, cap_auto = 0, bat_manual = 0, bat_auto = 0, charge_cap = 0, charge_bat = 0, bat_to_cap = 0, ctrl_mode = 0;  // mode:0 manual,1 auto
 bool        mpVoltN, capVoltN, mpCurrH, capCurrH, mpIGBTErr, capIGBTErr, batIGBTErr;
+static bool error_mode=0,error_reset=0;
 static u8   batStatus;
 static u8   uSensorState = 0;
 static bool igbt_en      = 0;
@@ -50,7 +51,7 @@ void vIGBTCtrlTask( void* param )
             cap_manual = !cap_manual;
             break;
         case WKUP_SHORT_PRESS:
-            // RESV
+            error_reset=1;
             break;
         case WKUP_MID_PRESS:
             ctrl_mode = !ctrl_mode;
@@ -61,6 +62,15 @@ void vIGBTCtrlTask( void* param )
         default:
             break;
         }
+		// SensorState
+		uSensorState = getSensorState();
+		mpVoltN    = uSensorState & 0x01;
+		capVoltN   = ( uSensorState & 0x02 ) >> 1;
+		mpCurrH    = ( uSensorState & 0x04 ) >> 2;
+		capCurrH   = ( uSensorState & 0x08 ) >> 3;
+		mpIGBTErr  = ( uSensorState & 0x10 ) >> 4;
+		capIGBTErr = ( uSensorState & 0x20 ) >> 5;
+		batIGBTErr = ( uSensorState & 0x40 ) >> 6;
         /*手动模式*/
         if ( !ctrl_mode )
         {
@@ -73,8 +83,25 @@ void vIGBTCtrlTask( void* param )
                 cap_manual = CAP_IGBT;
                 bat_manual = BAT_IGBT;
             }
+			if ( mpIGBTErr || capIGBTErr || batIGBTErr )
+			{
+				error_mode=1;
+				if ( mpIGBTErr )
+					mp_manual = 0;
+				if ( capIGBTErr )
+					cap_manual = 0;
+				if ( batIGBTErr )
+					bat_manual = 0;
+			}
+			else
+			{
+				if(error_reset)
+				{
+					error_mode=0;
+					error_reset=0;
+				}
+			}
             // IGBT控制
-
             if ( !igbt_en )
             {
                 bat_manual = 0;
@@ -86,21 +113,12 @@ void vIGBTCtrlTask( void* param )
         /*自动模式*/
         else
         {
+			error_mode=0;
             LED0 = 0;
             if ( !mode_flag )
             {
                 mode_flag = 1;
             }
-            // SensorState
-            uSensorState = getSensorState();
-            //			uSensorState=uSensorState&0x3F;	//强制bit6：0
-            mpVoltN    = uSensorState & 0x01;
-            capVoltN   = ( uSensorState & 0x02 ) >> 1;
-            mpCurrH    = ( uSensorState & 0x04 ) >> 2;
-            capCurrH   = ( uSensorState & 0x08 ) >> 3;
-            mpIGBTErr  = ( uSensorState & 0x10 ) >> 4;
-            capIGBTErr = ( uSensorState & 0x20 ) >> 5;
-            batIGBTErr = ( uSensorState & 0x40 ) >> 6;
             if ( igbt_en )
             {
                 // IGBT
@@ -224,4 +242,9 @@ void vChargeCtrlTask( void* param )
             }
         }
     }
+}
+
+bool getErrorMode(void)
+{
+	return error_mode;
 }
